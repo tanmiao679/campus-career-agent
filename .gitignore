@@ -1,0 +1,7 @@
+.env
+.m2/
+*.log
+target/
+.idea/
+*.iml
+.vscode/

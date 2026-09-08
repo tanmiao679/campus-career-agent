@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: campus-career-agent
+  ai:
+    model:
+      chat: deepseek
+    deepseek:
+      api-key: ${DEEPSEEK_API_KEY}
+      chat:
+        model: ${DEEPSEEK_MODEL:deepseek-chat}
+        temperature: 0.2
+    retry:
+      max-attempts: 2
+      backoff:
+        initial-interval: 500ms
+        multiplier: 2
+        max-interval: 2s
+    tools:
+      throw-exception-on-error: false
+      limits:
+        max-calls-per-tool-default: 2
+        max-total-tool-calls: 5
+        on-limit-exceeded: RETURN_ERROR_RESPONSE
+
+server:
+  port: ${SERVER_PORT:8080}
