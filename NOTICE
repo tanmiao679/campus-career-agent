@@ -1,0 +1,14 @@
+Campus Career Agent
+Copyright 2026 campus-career-agent contributors
+
+This project uses Spring AI and was designed with reference to:
+
+- Spring AI official documentation and examples: https://docs.spring.io/spring-ai/reference/
+- Spring AI Alibaba examples: https://github.com/springaialibaba/spring-ai-alibaba-examples
+
+The career-domain tools, data models, validation, bounded tool execution,
+conversation orchestration, safe trace response, tests, and documentation in
+this repository are independently implemented for this project.
+
+This project is not affiliated with, endorsed by, or sponsored by the Spring
+team or Alibaba.
