@@ -1,6 +1,6 @@
 spring:
   ai:
     model:
-      chat: none
+      chat: deepseek
     deepseek:
       api-key: test-key-never-sent
