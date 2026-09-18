@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>Campus Career Agent · 校园职业助手</title>
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./app.js" defer></script>
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <div class="brand"><span class="brand-mark" aria-hidden="true">C↗</span><div><p class="eyebrow">CAMPUS / CAREER LAB</p><h1>校园职业助手</h1></div></div>
+      <div class="top-actions"><span class="system-state" id="state" role="status">等待提问</span><button class="secondary" id="new-chat" type="button">＋ 新建会话</button></div>
+    </header>
+    <section class="intro"><div><p class="eyebrow">从目标岗位，到下一步行动</p><h2>把职业方向，<span>聊清楚。</span></h2></div><p>拆解岗位要求 · 制定学习计划 · 准备技术面试<br>每次工具调用，都有迹可循。</p></section>
+    <main class="workspace">
+      <section class="chat-panel" aria-labelledby="chat-title">
+        <div class="panel-head"><h3 id="chat-title">职业对话 <span class="label">CAREER CHAT</span></h3><span class="small" id="turn-count">0 次提问</span></div>
+        <div id="messages" class="messages" role="log" aria-label="聊天记录" aria-live="polite" aria-relevant="additions">
+          <div id="welcome" class="welcome"><span class="welcome-mark" aria-hidden="true">↗</span><h3>你的下一站，想去哪里？</h3><p>告诉我目标岗位、目前的基础和准备时间。<br>也可以从下面的示例开始。</p><div class="capabilities"><span>岗位分析</span><span>学习规划</span><span>面试准备</span></div></div>
+        </div>
+        <div class="examples" aria-label="示例问题">
+          <button type="button" data-example="岗位分析">岗位分析 <span>↗</span></button>
+          <button type="button" data-example="学习计划">学习计划 <span>↗</span></button>
+          <button type="button" data-example="面试题">面试题 <span>↗</span></button>
+        </div>
+        <form id="chat-form" class="composer">
+          <label class="sr-only" for="message">输入职业规划或面试问题</label>
+          <textarea id="message" rows="3" maxlength="8000" placeholder="例如：我会 Java 和 Spring Boot，如何准备后端校招？" required></textarea>
+          <div class="composer-footer"><span class="small">Enter 发送 · Shift + Enter 换行 <span id="char-count">0 / 8000</span></span><button class="primary" id="send" type="submit">发送 ↗</button></div>
+        </form>
+        <p id="feedback" class="feedback" role="alert" hidden></p>
+      </section>
+      <aside class="trace-panel" aria-labelledby="trace-title">
+        <div class="panel-head"><h3 id="trace-title">Agent Trace</h3><span class="label accent">EXECUTION</span></div>
+        <p class="trace-note">选择一条回答，查看对应的执行记录。</p>
+        <dl class="ids"><div><dt>conversationId</dt><dd id="conversation-id">尚未创建</dd></div><div><dt>requestId</dt><dd id="request-id">等待请求</dd></div></dl>
+        <div class="trace-summary"><span>工具调用</span><strong id="trace-count">—</strong></div>
+        <div id="traces" class="traces" aria-live="polite"><p class="empty">发送问题后，这里展示服务端返回的工具名称、状态、输入摘要与耗时。</p></div>
+        <div class="trace-legend"><span><i class="dot success"></i> SUCCESS</span><span><i class="dot failed"></i> FAILED</span></div>
+      </aside>
+    </main>
+    <footer><span>CAMPUS CAREER AGENT</span><span>对话有上下文，行动有依据。</span></footer>
+  </div>
+</body>
+</html>
